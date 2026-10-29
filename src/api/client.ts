@@ -1,8 +1,9 @@
 import axios from "axios";
 import { clearSession } from "../services/session";
 
+const VITE_API_URL = import.meta.env.VITE_API_URL ?? "";
 export const apiClient = axios.create({
-  baseURL: import.meta.env.VITE_API_URL ?? "http://localhost:8080",
+  baseURL: import.meta.env.VITE_API_URL ?? VITE_API_URL,
   // No default Content-Type: axios sets application/json by itself for plain objects. A default JSON
   // header makes axios turn FormData uploads into JSON, which breaks every file upload.
   withCredentials: true,
